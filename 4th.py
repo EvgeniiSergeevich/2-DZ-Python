@@ -9,25 +9,23 @@
 n = int(input('Введите число: '))
 prod = 1
 
-str1 = ""
-for j in range(-n, n + 1):                               # Заполняю строку значениями от -n до n
-    str1 += str(j) + " "
-str1 = str1[:len(str1) - 1]                              # Удаляю последний пробел
 
-d =  list(map(int, str1.split(" ")))                     # Делаю список int из строки 
-print(f'Список чисел от -n до n: {d}')
+list1 = []
+for j in range(-n, n + 1):                               # Заполняю список значениями от -n до n
+    list1.append(j)
+
+print(f'Список чисел от -n до n: {list1}')
 
 f = open('file.txt')                    
 
 str2 = ""
 
 for i in f:                                              # Читаю из файла значения для произведения в строку
-    if i != '\n':
-        str2 += i
+    str2 += i
 
 l = list(map(int, str2.split('\n')))                     # Делаю список из строки
 print(f'Позиции элементов для произведения: {l}')
 
 for i in range(len(l)):                                  # Перемножаю элементы на нужных позициях
-    prod *=  int(d[l[i]])
+    prod *=  int(list1[l[i]])
 print(f'Произведение элементов = {prod}')    
